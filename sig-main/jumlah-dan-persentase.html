@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<!-- 
+  Theme Name: Enlight
+  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
+  Author: ProBootstrap.com
+  Author URL: https://probootstrap.com
+  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tentang</title>
+
+  <link href="img/logo.png" rel="icon" />
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css" />
+  <link rel="stylesheet" href="css/styles-merged.css" />
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="probootstrap-search" id="probootstrap-search">
+    <a href="#" class="probootstrap-close js-probootstrap-close"><i class="icon-cross"></i></a>
+    <form action="#">
+      <input type="search" name="s" id="search" placeholder="Search a keyword and hit enter..." />
+    </form>
+  </div>
+
+  <div class="probootstrap-page-wrapper">
+    <!-- Fixed navbar -->
+    <div class="container">
+      <div class="navbar-header">
+        <div class="btn-more js-btn-more visible-xs">
+          <a href="#"><i class="icon-dots-three-vertical"></i></a>
+        </div>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html" title="ProBootstrap:Enlight">Pantau Jumlah dan Persentase</a>
+      </div>
+
+      <nav class="navbar navbar-default probootstrap-navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="btn-more js-btn-more visible-xs">
+              <a href="#"><i class="icon-dots-three-vertical"></i></a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+              aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="index.html">Beranda</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Tentang</a>
+                <ul class="dropdown-menu">
+                  <li><a href="sig.html">SIG</a></li>
+                  <li><a href="jateng.html">Provinsi Jawa Tengah</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Peta Digitasi</a>
+                <ul class="dropdown-menu">
+                  <li><a href="jumlah-dan-persentase.html">Jumlah dan Persentase</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <section class="probootstrap-section probootstrap-section-colored" style="background-color: #00b673">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-left section-heading probootstrap-animate">
+            <h1>Jumlah dan Persentase</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <!-- Kolom pertama untuk iframe dan screenshot 2022 -->
+          <div class="col-md-6 col-12 mb-4">
+            <div class="probootstrap-iframe-wrapper probootstrap-animate">
+              <iframe src="Kemiskinan-2022/index.html" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                style="width: 100%; height: 315px; border-radius: 8px"></iframe>
+              <div class="text-center mt-2">
+                <p><strong>Tahun: 2022</strong></p>
+              </div>
+              <!-- Screenshot data 2022 -->
+            </div>
+          </div>
+
+          <!-- Kolom kedua untuk iframe dan screenshot 2023 -->
+          <div class="col-md-6 col-12 mb-4">
+            <div class="probootstrap-iframe-wrapper probootstrap-animate">
+              <iframe src="Kemiskinan-2023/index.html" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                style="width: 100%; height: 315px; border-radius: 8px"></iframe>
+              <div class="text-center mt-2">
+                <p><strong>Tahun: 2023</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <label for="tahun">Pilih Tahun: </label>
+            <select id="tahun" onchange="filterTahun()">
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+            <table id="dataBencana">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Kab/Kota</th>
+                  <th>Garis Kemiskinan Per bulan</th>
+                  <th>Persentase</th>
+                  <th>Jumlah Penduduk Miskin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data tahun 2023 -->
+                <tr data-tahun="2023">
+                  <td>1</td>
+                  <td>Cilacap</td>
+                  <td>419.429</td>
+                  <td>10,99%</td>
+                  <td>191.000</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>2</td>
+                  <td>Banyumas</td>
+                  <td>479.027</td>
+                  <td>12,53%</td>
+                  <td>216.500</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>3</td>
+                  <td>Purbalingga</td>
+                  <td>439.208</td>
+                  <td>14,99%</td>
+                  <td>143.410</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>4</td>
+                  <td>Banjarnegara</td>
+                  <td>380.046</td>
+                  <td>14,90%</td>
+                  <td>138.990</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>5</td>
+                  <td>Kebumen</td>
+                  <td>451.678</td>
+                  <td>16,34%</td>
+                  <td>195.450</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>6</td>
+                  <td>Purworejo</td>
+                  <td>427.622</td>
+                  <td>11,33%</td>
+                  <td>81.280</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>7</td>
+                  <td>Wonosobo</td>
+                  <td>425.105</td>
+                  <td>15,58%</td>
+                  <td>123.700</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>8</td>
+                  <td>Magelang</td>
+                  <td>411.129</td>
+                  <td>10,96%</td>
+                  <td>144.490</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>9</td>
+                  <td>Boyolali</td>
+                  <td>420.339</td>
+                  <td>9,81%</td>
+                  <td>97.480</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>10</td>
+                  <td>Klaten</td>
+                  <td>488.102</td>
+                  <td>12,28%</td>
+                  <td>144.430</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>11</td>
+                  <td>Sukoharjo</td>
+                  <td>476.675</td>
+                  <td>7,58%</td>
+                  <td>58.790</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>12</td>
+                  <td>Wonogiri</td>
+                  <td>476.675</td>
+                  <td>10,94%</td>
+                  <td>104.820</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>13</td>
+                  <td>Karanganyar</td>
+                  <td>465.703</td>
+                  <td>9,79%</td>
+                  <td>88.640</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>14</td>
+                  <td>Sragen</td>
+                  <td>426.482</td>
+                  <td>12,87%</td>
+                  <td>114.620</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>15</td>
+                  <td>Grobogan</td>
+                  <td>464.614</td>
+                  <td>11,72%</td>
+                  <td>162.520</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>16</td>
+                  <td>Blora</td>
+                  <td>477.514</td>
+                  <td>14,17%</td>
+                  <td>99.610</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>17</td>
+                  <td>Rembang</td>
+                  <td>532.545</td>
+                  <td>9,31%7</td>
+                  <td>91.970</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>18</td>
+                  <td>Pati</td>
+                  <td>532.545</td>
+                  <td>9,31%</td>
+                  <td>118.180</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>19</td>
+                  <td>Kudus</td>
+                  <td>520.830</td>
+                  <td>7,24%</td>
+                  <td>65.160</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>20</td>
+                  <td>Jepara</td>
+                  <td>479.131</td>
+                  <td>6,61%</td>
+                  <td>86.750</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>21</td>
+                  <td>Demak</td>
+                  <td>511.145</td>
+                  <td>12,01%</td>
+                  <td>143.260</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>22</td>
+                  <td>Semarang</td>
+                  <td>498.952</td>
+                  <td>7,17%</td>
+                  <td>78.350</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>23</td>
+                  <td>Temanggung</td>
+                  <td>388.369</td>
+                  <td>9,26%</td>
+                  <td>72.960</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>24</td>
+                  <td>Kendal</td>
+                  <td>465.936</td>
+                  <td>9,39%</td>
+                  <td>92.640</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>25</td>
+                  <td>Batang</td>
+                  <td>378.858</td>
+                  <td>8,92%</td>
+                  <td>69.970</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>26</td>
+                  <td>Pekalongan</td>
+                  <td>480.934</td>
+                  <td>9,67%</td>
+                  <td>87.930</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>27</td>
+                  <td>Pemalang</td>
+                  <td>467.204</td>
+                  <td>15,03%%</td>
+                  <td>195.570</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>28</td>
+                  <td>Tegal</td>
+                  <td>470.728</td>
+                  <td>7,30%</td>
+                  <td>195.570</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>29</td>
+                  <td>Brebes</td>
+                  <td>513.339</td>
+                  <td>15,73%</td>
+                  <td>286.140</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>30</td>
+                  <td>Kota Magelang</td>
+                  <td>602.794</td>
+                  <td>6,11%</td>
+                  <td>7.450</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>31</td>
+                  <td>Kota Surakarta</td>
+                  <td>600.953</td>
+                  <td>8,44%</td>
+                  <td>43.890</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>32</td>
+                  <td>kota Salatiga</td>
+                  <td>565.031</td>
+                  <td>4,66%</td>
+                  <td>9.410</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>33</td>
+                  <td>Kota Semarang</td>
+                  <td>642.456</td>
+                  <td>4,23%</td>
+                  <td>80.530</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>34</td>
+                  <td>Kota Pekalongan</td>
+                  <td>565.998</td>
+                  <td>6,81%</td>
+                  <td>21.360</td>
+                </tr>
+                <tr data-tahun="2023">
+                  <td>35</td>
+                  <td>Kota Tegal</td>
+                  <td>623.617</td>
+                  <td>7,68%</td>
+                  <td>19220</td>
+                </tr>
+
+                <!-- Data tahun 2022 -->
+                <tr data-tahun="2022">
+                  <td>1</td>
+                  <td>Cilacap</td>
+                  <td>384.955</td>
+                  <td>11,02%</td>
+                  <td>190.960</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>2</td>
+                  <td>Banyumas</td>
+                  <td>441.520</td>
+                  <td>12,84%</td>
+                  <td>220.470</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>3</td>
+                  <td>Purbalingga</td>
+                  <td>407.849</td>
+                  <td>15,30%</td>
+                  <td>145.330</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>4</td>
+                  <td>Banjarnegara</td>
+                  <td>351.333</td>
+                  <td>15,20%</td>
+                  <td>141.250</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>5</td>
+                  <td>Kebumen</td>
+                  <td>416.004</td>
+                  <td>16,41%</td>
+                  <td>196.160</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>6</td>
+                  <td>Purworejo</td>
+                  <td>393.731</td>
+                  <td>11,53%</td>
+                  <td>082.640</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>7</td>
+                  <td>Wonosobo</td>
+                  <td>399.180</td>
+                  <td>16,17%</td>
+                  <td>128.110</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>8</td>
+                  <td>Magelang</td>
+                  <td>377.497</td>
+                  <td>11,09%</td>
+                  <td>145.330</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>9</td>
+                  <td>Boyolali</td>
+                  <td>383.030</td>
+                  <td>9,82%</td>
+                  <td>097.180</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>10</td>
+                  <td>Klaten</td>
+                  <td>458.872</td>
+                  <td>12,33%</td>
+                  <td>144.870</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>11</td>
+                  <td>Sukoharjo</td>
+                  <td>434.318</td>
+                  <td>7,61%</td>
+                  <td>068.720</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>12</td>
+                  <td>Wonogiri</td>
+                  <td>376.763</td>
+                  <td>10,99%</td>
+                  <td>105.190</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>13</td>
+                  <td>Karanganyar</td>
+                  <td>424.677</td>
+                  <td>9,85%</td>
+                  <td>088.560</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>14</td>
+                  <td>Sragen</td>
+                  <td>389.265</td>
+                  <td>12,94%</td>
+                  <td>115.140</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>15</td>
+                  <td>Grobogan</td>
+                  <td>428.597</td>
+                  <td>11,80%</td>
+                  <td>163.200</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>16</td>
+                  <td>Blora</td>
+                  <td>390.478</td>
+                  <td>11,53%</td>
+                  <td>099.830</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>17</td>
+                  <td>Rembang</td>
+                  <td>441.482</td>
+                  <td>14,65%</td>
+                  <td>094.560</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>18</td>
+                  <td>Pati</td>
+                  <td>486.855</td>
+                  <td>9,33%</td>
+                  <td>118.040</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>19</td>
+                  <td>Kudus</td>
+                  <td>482.806</td>
+                  <td>7,41%</td>
+                  <td>066.060</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>20</td>
+                  <td>Jepara</td>
+                  <td>442.618</td>
+                  <td>6,88%</td>
+                  <td>089.080</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>21</td>
+                  <td>Demak</td>
+                  <td>471.818</td>
+                  <td>12,09%</td>
+                  <td>143.010</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>22</td>
+                  <td>Semarang</td>
+                  <td>459.151</td>
+                  <td>7,27%</td>
+                  <td>078.600</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>23</td>
+                  <td>Temanggung</td>
+                  <td>354.012</td>
+                  <td>9,33%</td>
+                  <td>073.040</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>24</td>
+                  <td>Kendal</td>
+                  <td>433.864</td>
+                  <td>9,48%</td>
+                  <td>93.030</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>25</td>
+                  <td>Batang</td>
+                  <td>341.252</td>
+                  <td>8,98%</td>
+                  <td>69.940</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>26</td>
+                  <td>Pekalongan</td>
+                  <td>441.765</td>
+                  <td>9,67%</td>
+                  <td>87.530</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>27</td>
+                  <td>Pemalang</td>
+                  <td>429.549</td>
+                  <td>15,06%</td>
+                  <td>195.840</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>28</td>
+                  <td>Tegal</td>
+                  <td>434.638</td>
+                  <td>7,90%</td>
+                  <td>113.620</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>29</td>
+                  <td>Brebes</td>
+                  <td>472.326</td>
+                  <td>16,05%</td>
+                  <td>290.660</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>30</td>
+                  <td>Kota Magelang</td>
+                  <td>575.130</td>
+                  <td>7,10%</td>
+                  <td>8.650</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>31</td>
+                  <td>Kota Surakarta</td>
+                  <td>538.441</td>
+                  <td>8,84%</td>
+                  <td>45.940</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>32</td>
+                  <td>Kota Salatiga</td>
+                  <td>518.815</td>
+                  <td>4,73%</td>
+                  <td>9.450</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>33</td>
+                  <td>Kota Semarang</td>
+                  <td>589.598</td>
+                  <td>4,25%</td>
+                  <td>79.870</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>34</td>
+                  <td>Kota Pekalongan</td>
+                  <td>513.243</td>
+                  <td>7,00%</td>
+                  <td>21.810</td>
+                </tr>
+                <tr data-tahun="2022">
+                  <td>35</td>
+                  <td>Kota Tegal</td>
+                  <td>565.826</td>
+                  <td>7,91%</td>
+                  <td>19.780</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="probootstrap-footer probootstrap-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="probootstrap-footer-widget">
+              <h3>Info Kontak</h3>
+              <ul class="probootstrap-contact-info">
+                <li>
+                  <i class="icon-location2"></i>
+                  <span>Purwodadi, Grobogan-Jawa Tengah</span>
+                </li>
+                <li>
+                  <a href="mailto:divacandra96@gmail.com">
+                    <i class="icon-mail"></i>
+                    <span>divacandra96@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+6287848244842">
+                    <i class="icon-phone2"></i>
+                    <span>+62 878-4824-4842</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- END row -->
+      </div>
+    </footer>
+  </div>
+  <!-- END wrapper -->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#dataBencana").DataTable();
+    });
+
+    function filterTahun() {
+      const tahun = document.getElementById("tahun").value;
+      const rows = document.querySelectorAll("#dataBencana tbody tr");
+
+      rows.forEach((row) => {
+        if (row.getAttribute("data-tahun") === tahun) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      // Menginisialisasi ulang DataTables setelah filter
+      $("#dataBencana").DataTable().destroy();
+      $("#dataBencana").DataTable();
+    }
+
+    // Inisialisasi untuk menampilkan data tahun 2023 saat halaman pertama kali dimuat
+    filterTahun();
+  </script>
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
